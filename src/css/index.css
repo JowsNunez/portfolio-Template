@@ -2,30 +2,52 @@
 @import url("/src/fonts/SourceCodePro-Bold.woff2");
 @import url("/src/fonts/SourceCodePro-Medium.woff2");
 @import url("/src/fonts/SourceCodePro-SemiBold.woff2");
-:root, :root.purple {
-  --letter_primary: #9b3ffd;
-  --background-color: rgb(28, 36, 62);
+:root,
+:root.purple {
+  --letter_purple: #9b3ffd;
+  --letter_primary: var(--letter-purple);
+  --letter_black: #161616;
+  --letter_cyan: #19b1f1;
+  --letter_green: #00ff48;
+  --letter_blue: #0b40ff;
+  --letter_red: #ff2e2e;
+  --letter_black: #161616;
+  --background-purple: #361b39;
+  --background-cyan: #1c243e;
+  --background-red: #271f1f;
+  --background-blue: #030224;
+  --background-green: #284034;
+  --background-color: var(--background-purple);
+  --background-ligth: rgb(209, 209, 209);
   --text-color: rgb(235, 235, 235);
-  --shadow: var(--letter_primary);
+  --text-dark:rgb(29, 29, 29);
+  --shadow: #161616cb;
 }
 
 :root.cyan {
-  --letter_primary: #19b1f1;
+  --letter_primary: var(--letter_cyan);
+  --background-color: var(--background-cyan);
 }
 
 :root.green {
-  --letter_primary: #00ff48;
+  --letter_primary: var(--letter_green);
+  --background-color: var(--background-green);
 }
 
 :root.blue {
-  --letter_primary: #0b40ff;
+  --letter_primary: var(--letter_blue);
+  --background-color: var(--background-blue);
+}
+
+:root.red {
+  --letter_primary: var(--letter_red);
+  --background-color: var(--background-red);
 }
 
 :root.light {
-  --letter_primary: #161616;
-  --background-color: white;
-  --text-color: rgb(23, 23, 23);
-  --shadow: #acacac;
+  --letter_primary: var(--letter_black);
+  --background-color: var(--background-light);
+  --text-color: var(--text-dark);
 }
 
 * {
@@ -53,7 +75,7 @@ header {
   background: var(--background-color);
   position: fixed;
   top: 0px;
-  transition: all ease 500ms;
+  transition: all ease 800ms;
 }
 header .flex {
   width: 100%;
@@ -94,6 +116,7 @@ header .aboutme {
   min-width: 300px;
   position: fixed;
   left: -100%;
+  top: 80px;
   background: var(--background-color);
   transition: all ease 500ms;
   display: flex;
@@ -105,16 +128,20 @@ header .aboutme {
 .flex .content-nav nav {
   font-size: 25px;
   width: 100%;
-  height: 100vh;
+  height: 40% !important;
   color: var(--text-color);
+  background: var(--background-color);
+  z-index: 1000;
 }
-.flex .content-nav nav ul {
+.flex .content-nav nav .nav-menu {
   width: 100%;
-  height: 100vh;
+  height: 40%;
   list-style: circle !important;
   display: block;
+  box-sizing: border-box;
+  overflow-y: scroll;
 }
-.flex .content-nav nav ul .menu-item {
+.flex .content-nav nav .nav-menu li.menu-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,14 +151,93 @@ header .aboutme {
   cursor: pointer;
   transition: all ease 300ms;
 }
-.flex .content-nav nav ul .menu-item:hover {
+.flex .content-nav nav .nav-menu .menu-item:hover {
   background-color: #121f31;
   border-bottom: 1px solid;
   box-sizing: border-box;
 }
-.flex .content-nav nav ul .menu-item a {
+.flex .content-nav nav .nav-menu .menu-item a {
   text-decoration: none;
   color: var(--text-color);
+}
+.flex .content-nav nav .nav-menu .drop-item {
+  width: 100%;
+  height: 60px;
+  transition: all ease 700ms;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+.flex .content-nav nav .nav-menu .drop-item .drop-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+}
+.flex .content-nav nav .nav-menu .drop-item .drop-content {
+  width: 100%;
+  display: none;
+  top: -10px;
+  position: absolute;
+}
+.flex .content-nav nav .nav-menu .drop-item .drop-content select {
+  width: 100%;
+  height: 40px;
+}
+.flex .content-nav nav .nav-menu .drop-item .item {
+  list-style: none;
+  width: 100%;
+}
+.flex .content-nav nav .nav-menu .drop-item .item button {
+  border: none;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all ease 400ms;
+  cursor: pointer;
+}
+.flex .content-nav nav .nav-menu .drop-item .item button.purple {
+  background-color: var(--background-purple);
+  color: var(--letter_purple);
+}
+.flex .content-nav nav .nav-menu .drop-item .item button.cyan {
+  background-color: var(--background-cyan);
+  color: var(--letter_cyan);
+}
+.flex .content-nav nav .nav-menu .drop-item .item button.blue {
+  background-color: var(--background-blue);
+  color: var(--letter_blue);
+}
+.flex .content-nav nav .nav-menu .drop-item .item button.green {
+  background-color: var(--background-green);
+  color: var(--letter_green);
+}
+.flex .content-nav nav .nav-menu .drop-item .item button.red {
+  background-color: var(--background-red);
+  color: var(--letter_red);
+}
+.flex .content-nav nav .nav-menu .drop-item .item button.light {
+  background-color: var(--background-ligth);
+  color: var(--letter_black);
+}
+.flex .content-nav nav .nav-menu .drop-item .item :hover {
+  background-color: rgba(0, 0, 0, 0.507);
+}
+.flex .content-nav nav .nav-menu .drop-item:hover {
+  width: 100%;
+  height: auto;
+}
+.flex .content-nav nav .nav-menu .drop-item:hover .drop-content {
+  top: 0px;
+  display: block;
+  position: relative;
+  height: auto;
 }
 
 #burger:hover {
@@ -261,6 +367,7 @@ header .aboutme {
     width: 80%;
     height: 100%;
     left: 0;
+    top: 0;
     margin: 0;
     margin: 0 40px 0 0px;
   }
@@ -275,17 +382,42 @@ header .aboutme {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    box-shadow: none;
   }
-  header .flex .content-nav nav ul.nav-menu .menu-item:last-child {
+  header .flex .content-nav nav ul.nav-menu .drop-item {
+    width: 200px;
+    height: 40px;
+  }
+  header .flex .content-nav nav ul.nav-menu .drop-item:hover {
+    width: 250px;
+    height: 40px;
+  }
+  header .flex .content-nav nav ul.nav-menu .drop-item:hover .drop-content {
+    background-color: var(--background-color);
+    border-radius: 4px;
+    box-shadow: 0px 5px 5px 0px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 100%;
+    position: absolute;
+    height: auto;
+  }
+  header .flex .content-nav nav ul.nav-menu .drop-item:hover .drop-content button {
+    border-radius: 10px;
+    margin: 5px 0;
+    box-shadow: 1px 3px 1px 1px var(--shadow);
+  }
+  header .flex .content-nav nav ul.nav-menu .menu-item:nth-child(3) {
     border-radius: 20px;
     border: 2px solid var(--letter_primary);
     width: 160px;
   }
-  header .flex .content-nav nav ul.nav-menu .menu-item:last-child a {
+  header .flex .content-nav nav ul.nav-menu .menu-item:nth-child(3) a {
     color: var(--letter_primary);
   }
   header .flex .content-nav nav ul.nav-menu .menu-item {
-    width: 150px;
+    width: 180px;
     height: 40px;
   }
   header .flex .content-nav nav ul.nav-menu .menu-item:hover,
@@ -294,11 +426,11 @@ header .flex .content-nav nav ul.nav-menu .menu-item:hover a {
     color: var(--letter_primary) !important;
     background: none;
   }
-  header .flex .content-nav nav ul.nav-menu .menu-item:hover:last-child a {
+  header .flex .content-nav nav ul.nav-menu .menu-item:hover:nth-child(3) a {
     color: var(--background-color) !important;
     font-weight: 600;
   }
-  header .flex .content-nav nav ul.nav-menu .menu-item:hover:last-child {
+  header .flex .content-nav nav ul.nav-menu .menu-item:hover:nth-child(3) {
     background: var(--letter_primary);
   }
 
