@@ -1,5 +1,4 @@
-$background: #000;
-$background-header: rgb(33, 42, 68);
+ 
 $letters: #9b3ffd;
 $family-code: "Source Code Pro", "Fira Code";
 $family-normal: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode";
@@ -11,9 +10,32 @@ $family-normal: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida S
 
 
 
-:root{
+:root, :root.purple{
     --letter_primary: #9b3ffd;
+    --background-color: rgb(28, 36, 62);
+    --text-color: rgb(235, 235, 235);
+    --shadow: var(--letter_primary);
 
+
+}
+
+:root.cyan {
+    --letter_primary: #19b1f1;
+  }
+
+:root.green {
+    --letter_primary: #00ff48;
+}
+
+:root.blue {
+    --letter_primary: #0b40ff;
+}
+
+:root.light {
+    --letter_primary: #161616;
+    --background-color: white;
+    --text-color: rgb(23, 23, 23);
+    --shadow: #acacac;
 }
 
 * {
@@ -21,19 +43,25 @@ $family-normal: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida S
     padding: 0px;
     font-family: $family-code;
     font-size: 16px;
+    font-weight: 600;
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
 
+span{
+    font-size: 16px;
+}
+
 body{
-    background-color: $background-header;
-    color:rgb(206, 206, 206);
+    background-color: var(--background-color);
+    color:var(--text-color);
+   
 }
 
 header {
     width: 100%;
     height: 60px;
-    background: $background-header;
+    background: var(--background-color);
     position: fixed;
     top: 0px;
     transition: all ease 500ms;
@@ -84,7 +112,7 @@ header {
     min-width: 300px;
     position: fixed;
     left: -100%;
-    background: $background-header;
+    background: var(--background-color);
     transition: all ease 500ms;
     display: flex;
     align-items: center;
@@ -96,7 +124,7 @@ header {
         font-size: 25px;
         width: 100%;
         height: 100vh;
-        color: rgb(227, 255, 223);
+        color: var(--text-color);
 
         ul {
             width: 100%;
@@ -121,7 +149,7 @@ header {
 
             .menu-item a {
                 text-decoration: none;
-                color: rgb(227, 255, 223);
+                color: var(--text-color);
             }
         }
     }
@@ -249,6 +277,8 @@ header {
         top: 0px;
         position: fixed;
 
+        box-shadow: 0px 0px 5px 0.5px var(--shadow);
+
         .flex {
             position: relative;
             width: 100%;
@@ -256,7 +286,7 @@ header {
             display: flex;
             margin: 0px;
             justify-content: space-around;
-            background-color: $background-header;
+            background-color: var(--background-color);
         }
         .flex .content-logo {
             position: relative;
@@ -284,21 +314,18 @@ header {
                     display: flex;
                     justify-content: flex-end;
                     align-items: center;
-                    list-style: circle;
+                    
 
                     .menu-item:last-child {
                         border-radius: 20px;
-                        padding: 5px;
                         border: 2px solid var(--letter_primary);
-                        padding: 0px 10px;
-                        width: 140px;
+                        width: 160px;
                     }
                     .menu-item:last-child a{
                         color: var(--letter_primary);
                     }
                     .menu-item {
-                        padding: 10px 0px;
-                        width: 120px;
+                        width: 150px;
                         height: 40px;
                     }
 
@@ -310,7 +337,7 @@ header {
                     }
 
                     .menu-item:hover:last-child a {
-                        color: $background-header !important;
+                        color: var(--background-color) !important;
                         font-weight: 600;
                     }
                     .menu-item:hover:last-child {
@@ -328,7 +355,7 @@ header {
         margin: 150px auto 0;
         height: 100vh;
         border: 1px solid;
-        box-sizing: border-box;
+        box-sizing: border-box;  
         .aboutme {
             
             display: flex;
@@ -339,10 +366,15 @@ header {
                 height: auto;
                
                 .content-text {
+            
+
 text-align: center;
                 }
+                h2{
+                    color: var(--text-color);
+                }
                 h2 span {
-                    color: var(--letter_primary) !important;
+                    color: var(--letter_primary) ;
                 }
             }
 

@@ -2,8 +2,30 @@
 @import url("/src/fonts/SourceCodePro-Bold.woff2");
 @import url("/src/fonts/SourceCodePro-Medium.woff2");
 @import url("/src/fonts/SourceCodePro-SemiBold.woff2");
-:root {
+:root, :root.purple {
   --letter_primary: #9b3ffd;
+  --background-color: rgb(28, 36, 62);
+  --text-color: rgb(235, 235, 235);
+  --shadow: var(--letter_primary);
+}
+
+:root.cyan {
+  --letter_primary: #19b1f1;
+}
+
+:root.green {
+  --letter_primary: #00ff48;
+}
+
+:root.blue {
+  --letter_primary: #0b40ff;
+}
+
+:root.light {
+  --letter_primary: #161616;
+  --background-color: white;
+  --text-color: rgb(23, 23, 23);
+  --shadow: #acacac;
 }
 
 * {
@@ -11,19 +33,24 @@
   padding: 0px;
   font-family: "Source Code Pro", "Fira Code";
   font-size: 16px;
+  font-weight: 600;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
+span {
+  font-size: 16px;
+}
+
 body {
-  background-color: #212a44;
-  color: #cecece;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 header {
   width: 100%;
   height: 60px;
-  background: #212a44;
+  background: var(--background-color);
   position: fixed;
   top: 0px;
   transition: all ease 500ms;
@@ -67,7 +94,7 @@ header .aboutme {
   min-width: 300px;
   position: fixed;
   left: -100%;
-  background: #212a44;
+  background: var(--background-color);
   transition: all ease 500ms;
   display: flex;
   align-items: center;
@@ -79,7 +106,7 @@ header .aboutme {
   font-size: 25px;
   width: 100%;
   height: 100vh;
-  color: #e3ffdf;
+  color: var(--text-color);
 }
 .flex .content-nav nav ul {
   width: 100%;
@@ -104,7 +131,7 @@ header .aboutme {
 }
 .flex .content-nav nav ul .menu-item a {
   text-decoration: none;
-  color: #e3ffdf;
+  color: var(--text-color);
 }
 
 #burger:hover {
@@ -211,6 +238,7 @@ header .aboutme {
     height: 90px;
     top: 0px;
     position: fixed;
+    box-shadow: 0px 0px 5px 0.5px var(--shadow);
   }
   header .flex {
     position: relative;
@@ -219,7 +247,7 @@ header .aboutme {
     display: flex;
     margin: 0px;
     justify-content: space-around;
-    background-color: #212a44;
+    background-color: var(--background-color);
   }
   header .flex .content-logo {
     position: relative;
@@ -247,21 +275,17 @@ header .aboutme {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    list-style: circle;
   }
   header .flex .content-nav nav ul.nav-menu .menu-item:last-child {
     border-radius: 20px;
-    padding: 5px;
     border: 2px solid var(--letter_primary);
-    padding: 0px 10px;
-    width: 140px;
+    width: 160px;
   }
   header .flex .content-nav nav ul.nav-menu .menu-item:last-child a {
     color: var(--letter_primary);
   }
   header .flex .content-nav nav ul.nav-menu .menu-item {
-    padding: 10px 0px;
-    width: 120px;
+    width: 150px;
     height: 40px;
   }
   header .flex .content-nav nav ul.nav-menu .menu-item:hover,
@@ -271,7 +295,7 @@ header .flex .content-nav nav ul.nav-menu .menu-item:hover a {
     background: none;
   }
   header .flex .content-nav nav ul.nav-menu .menu-item:hover:last-child a {
-    color: #212a44 !important;
+    color: var(--background-color) !important;
     font-weight: 600;
   }
   header .flex .content-nav nav ul.nav-menu .menu-item:hover:last-child {
@@ -299,8 +323,11 @@ header .flex .content-nav nav ul.nav-menu .menu-item:hover a {
   main .aboutme .content-ab .content-text {
     text-align: center;
   }
+  main .aboutme .content-ab h2 {
+    color: var(--text-color);
+  }
   main .aboutme .content-ab h2 span {
-    color: var(--letter_primary) !important;
+    color: var(--letter_primary);
   }
   main .aboutme .conte {
     width: 400px;

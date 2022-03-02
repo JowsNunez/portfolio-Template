@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -7,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/index.css" type="text/css">
     <title>Document</title>
+    
 </head>
 
 <body>
@@ -39,10 +41,25 @@
                 <nav class="nav">
 
                     <ul  class="nav-menu">
-                        <li class="menu-item"><a href="">About Me</a></li>
-                        <li class="menu-item"><a href="">Portfolio</a></li>
-                        <li class="menu-item"><a href="">Contact Me</a></li>
+                        <ul class="drop-item">
+                            <li class="menu-item"><a href="">{ About Me };</a></li>
+                            <li class="menu-item"><a href="">{ Portfolio };</a></li>
+                            <li class="menu-item"><a href="">{ Contact Me };</a></li></a>
+                        </ul>
+                        <li class="menu-item"><a href="">{ About Me };</a></li>
+                        <li class="menu-item"><a href="">{ Portfolio };</a></li>
+                        <li class="menu-item"><a href="">{ Contact Me };</a></li>
+
+                       
                     </ul>
+                    <select name="theme-select" id="theme-select">
+                        <option value="cyan">cyan</option>
+                        <option value="purple">purple</option>
+                        <option value="green">Green</option>
+                        <option value="blue">Blue</option>
+                        <option value="light">Light</option>
+                        
+                    </select>
                 </nav>
 
             </aside>
@@ -55,7 +72,7 @@
     <main  class="principal">
         <section class="aboutme">
             <div class="content-ab">
-        <h2 id="textoMaquina" style="color: white" value="Texto">Hola Soy <span id="txt" aria-valuetext="Jose Alfredo Nuñez Aguirre.,Desarrollador Backend.,Desarrollador FrontEnd."></span></h2>
+        <h2 id="textoMaquina"  value="Texto">Hola Soy <span id="txt" aria-valuetext="{ Jose Alfredo Nuñez Aguirre. },{ Desarrollador Backend. },{ Desarrollador FrontEnd. }"></span></h2>
                 <div class="content-text">
                     <p>asdasd</p>
                 </div>
@@ -69,10 +86,14 @@
             <div class="conte"></div>
 
         </section>
+
+
     </main>
 
     <script src="src/js/burger.js"></script>
     <script src="src/js/maquina.js"></script>
+    <script src="src/js/letters.js"></script>
+
 </body>
 
 </html>
