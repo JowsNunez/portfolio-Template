@@ -193,7 +193,6 @@ header .aboutme {
   top: -10px;
   position: absolute;
   height: 30px;
-  overflow: none;
 }
 .flex .content-nav nav .nav-menu .drop-item .drop-content select {
   width: 100%;
@@ -249,7 +248,8 @@ header .aboutme {
   top: 0px;
   display: block;
   position: relative;
-  height: auto;
+  height: 300px;
+  overflow-y: scroll;
 }
 
 #burger:hover {
@@ -420,6 +420,7 @@ main {
     top: 100%;
     position: absolute;
     height: auto;
+    overflow: hidden;
   }
   header .flex .content-nav nav ul.nav-menu .drop-item:hover .drop-content button {
     border-radius: 10px;
