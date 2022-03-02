@@ -2,43 +2,58 @@
 @import url("/src/fonts/SourceCodePro-Bold.woff2");
 @import url("/src/fonts/SourceCodePro-Medium.woff2");
 @import url("/src/fonts/SourceCodePro-SemiBold.woff2");
+:root {
+  --letter_primary: #9b3ffd;
+}
+
 * {
   margin: 0px;
   padding: 0px;
   font-family: "Source Code Pro", "Fira Code";
+  font-size: 16px;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #212a44;
+  color: #cecece;
 }
 
 header {
   width: 100%;
-  height: 50px;
+  height: 60px;
   background: #212a44;
   position: fixed;
-  margin: 0;
+  top: 0px;
   transition: all ease 500ms;
 }
 header .flex {
   width: 100%;
   height: 100%;
+  position: relative;
+  display: flex;
 }
 header .flex .content-nav.show {
-  right: 0;
+  left: 0;
+}
+header .aboutme {
+  display: none;
 }
 
 .content-logo {
-  top: 5px;
   left: 40px;
   position: absolute;
   border: 1px solid;
   color: #393939 !important;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 100%;
   display: flex;
   cursor: pointer;
 }
 .content-logo .icon {
   fill: rgba(0, 30, 81, 0.993);
-  stroke: #00ff7b;
+  stroke: var(--letter_primary);
   stroke-width: 3px;
   box-shadow: 1px 1px 10px #6d6dff;
   transition: all ease 200ms;
@@ -48,20 +63,17 @@ header .flex .content-nav.show {
 }
 
 .flex .content-nav {
-  background: #212a44;
-  transition: all ease 500ms;
   width: 70%;
   min-width: 300px;
   position: fixed;
-  right: -100%;
-  top: 50px;
-  z-index: 100;
+  left: -100%;
+  background: #212a44;
   transition: all ease 500ms;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  border: 1px solid #000;
   box-sizing: border-box;
+  z-index: 100;
 }
 .flex .content-nav nav {
   font-size: 25px;
@@ -69,14 +81,13 @@ header .flex .content-nav.show {
   height: 100vh;
   color: #e3ffdf;
 }
-.flex .content-nav nav .nav-menu {
-  border: 1px solid #000;
-  list-style: circle;
+.flex .content-nav nav ul {
   width: 100%;
   height: 100vh;
-  box-sizing: border-box;
+  list-style: circle !important;
+  display: block;
 }
-.flex .content-nav nav .nav-menu .menu-item {
+.flex .content-nav nav ul .menu-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,12 +97,12 @@ header .flex .content-nav.show {
   cursor: pointer;
   transition: all ease 300ms;
 }
-.flex .content-nav nav .nav-menu .menu-item:hover {
+.flex .content-nav nav ul .menu-item:hover {
   background-color: #121f31;
   border-bottom: 1px solid;
   box-sizing: border-box;
 }
-.flex .content-nav nav .nav-menu .menu-item a {
+.flex .content-nav nav ul .menu-item a {
   text-decoration: none;
   color: #e3ffdf;
 }
@@ -102,8 +113,8 @@ header .flex .content-nav.show {
 
 #burger {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 10px;
+  right: 10px;
   width: 40px;
   height: 40px;
   border-radius: 3px;
@@ -122,7 +133,7 @@ header .flex .content-nav.show {
   border-radius: 2px;
   margin: 2px auto;
   height: 2px;
-  background: #00ff7b;
+  background: var(--letter_primary);
   animation: tline-close;
   animation-duration: 500ms;
   animation-fill-mode: forwards;
@@ -135,7 +146,7 @@ header .flex .content-nav.show {
   width: 50%;
   border-radius: 2px;
   height: 3px;
-  background: #00ff7b;
+  background: var(--letter_primary);
 }
 #burger .btn-hamburguesa .b-line {
   display: block;
@@ -143,7 +154,7 @@ header .flex .content-nav.show {
   border-radius: 2px;
   margin: 2px auto;
   height: 2px;
-  background: #00ff7b;
+  background: var(--letter_primary);
   animation-name: bline-close;
   animation-duration: 500ms;
   animation-fill-mode: forwards;
@@ -197,52 +208,104 @@ header .flex .content-nav.show {
   }
 
   header {
-    height: 80px;
+    height: 90px;
+    top: 0px;
     position: fixed;
   }
   header .flex {
     position: relative;
     width: 100%;
-    height: 80px;
+    height: 100%;
     display: flex;
     margin: 0px;
-    justify-content: space-between;
-    align-items: end;
+    justify-content: space-around;
+    background-color: #212a44;
   }
   header .flex .content-logo {
     position: relative;
     width: 80px;
-    height: 80px;
+    height: 100%;
     top: 0;
     left: 0;
   }
   header .flex .content-nav {
     position: relative;
     width: 80%;
-    height: 80px;
-    top: 0px;
-    right: 0;
+    height: 100%;
+    left: 0;
     margin: 0;
+    margin: 0 40px 0 0px;
   }
   header .flex .content-nav nav {
     width: 100%;
     height: 100%;
-    margin: auto 0;
   }
-  header .flex .content-nav nav .nav-menu {
+  header .flex .content-nav nav ul.nav-menu {
     width: 100%;
     height: 100%;
     display: flex;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    list-style: circle;
   }
-  header .flex .content-nav nav .nav-menu .menu-item {
-    margin: 0px 10px;
+  header .flex .content-nav nav ul.nav-menu .menu-item:last-child {
+    border-radius: 20px;
+    padding: 5px;
+    border: 2px solid var(--letter_primary);
+    padding: 0px 10px;
+    width: 140px;
+  }
+  header .flex .content-nav nav ul.nav-menu .menu-item:last-child a {
+    color: var(--letter_primary);
+  }
+  header .flex .content-nav nav ul.nav-menu .menu-item {
+    padding: 10px 0px;
+    width: 120px;
+    height: 40px;
+  }
+  header .flex .content-nav nav ul.nav-menu .menu-item:hover,
+header .flex .content-nav nav ul.nav-menu .menu-item:hover a {
+    border: none;
+    color: var(--letter_primary) !important;
+    background: none;
+  }
+  header .flex .content-nav nav ul.nav-menu .menu-item:hover:last-child a {
+    color: #212a44 !important;
+    font-weight: 600;
+  }
+  header .flex .content-nav nav ul.nav-menu .menu-item:hover:last-child {
+    background: var(--letter_primary);
   }
 
-  header.ontop {
-    height: 500px;
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 150px auto 0;
+    height: 100vh;
+    border: 1px solid;
+    box-sizing: border-box;
+  }
+  main .aboutme {
+    display: flex;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  main .aboutme .content-ab {
+    width: 350px;
+    height: auto;
+  }
+  main .aboutme .content-ab .content-text {
+    text-align: center;
+  }
+  main .aboutme .content-ab h2 span {
+    color: var(--letter_primary) !important;
+  }
+  main .aboutme .conte {
+    width: 400px;
+    height: 200px;
+    background-color: #000;
   }
 }
 

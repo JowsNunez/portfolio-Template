@@ -15,12 +15,19 @@ burger.addEventListener('click', () => {
 
 // Efecto nav y header
 let scroll = window.scrollY;
-window.addEventListener('scroll', () => {
+console.log(scroll)
+window.addEventListener('scroll', (e) => {
+        // e.preventDefault
+        // console.log(window.scrollY)
+        // if (window.scrollY <  100 || window.scrollY  == 0) {
+        //         header.classList.add('ontop')
+        //         header.style.top=0;
+        // } else {
+        //         header.classList.remove('ontop')
+        // }
 
-        if (window.scrollY <= 50) {
-                header.classList.add('ontop')
-        } else {
-                header.classList.remove('ontop')
+        if(window.scrollY ==0){
+                header.style.top='0px'; 
         }
 
         let scrolled = window.scrollY;
