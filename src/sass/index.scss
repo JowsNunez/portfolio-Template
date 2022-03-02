@@ -7,56 +7,62 @@ $family-normal: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida S
 @import url("/src/fonts/SourceCodePro-Medium.woff2");
 @import url("/src/fonts/SourceCodePro-SemiBold.woff2");
 
-:root,
-:root.purple {
+:root {
     --letter_purple: #9b3ffd;
-    --letter_primary: var(--letter-purple);
+    --letter_primary: var(--letter_purple);
     --letter_black: #161616;
     --letter_cyan: #19b1f1;
     --letter_green: #00ff48;
     --letter_blue: #0b40ff;
     --letter_red: #ff2e2e;
     --letter_black: #161616;
-    --background-purple:  #361b39;
-    --background-cyan:  #1c243e;
-    --background-red:  #271f1f;
-    --background-blue:  #030224;
-    --background-green:  #284034;
+    --background-purple: #361b39;
+    --background-cyan: #1c243e;
+    --background-red: #271f1f;
+    --background-blue: #030224;
+    --background-green: #284034;
     --background-color: var(--background-purple);
-    --background-ligth: rgb(209, 209, 209);
-    --text-color: rgb(235, 235, 235);
-    --text-dark:rgb(29, 29, 29);
+    --background-light: #dadada;
+    --hover-purple: rgb(100, 33, 100);
+    --hover-blue: rgb(37, 33, 100);
+    --hover-cyan: rgb(34, 89, 134);
+    --hover-green: rgb(58, 146, 102);
+    --hover-red: rgb(199, 86, 86);
+    --hover-light: rgb(99, 99, 99);
+    --hover-primary: var(--hover-purple);
+    --text-color: #ebebeb;
+    --text-dark: #1d1d1d;
     --shadow: #161616cb;
 }
 
 :root.cyan {
     --letter_primary: var(--letter_cyan);
     --background-color: var(--background-cyan);
-
+    --hover-primary: var(--hover-cyan);
 }
 
 :root.green {
     --letter_primary: var(--letter_green);
     --background-color: var(--background-green);
-
+    --hover-primary: var(--hover-green);
 }
 
 :root.blue {
     --letter_primary: var(--letter_blue);
     --background-color: var(--background-blue);
-
+    --hover-primary: var(--hover-blue);
 }
 :root.red {
     --letter_primary: var(--letter_red);
     --background-color: var(--background-red);
-
+    --hover-primary: var(--hover-red);
 }
 
 :root.light {
-
     --letter_primary: var(--letter_black);
     --background-color: var(--background-light);
     --text-color: var(--text-dark);
+    --hover-primary: var(--hover-light);
 }
 
 * {
@@ -112,7 +118,7 @@ header {
     display: flex;
 
     .icon {
-        fill: rgba(0, 30, 81, 0.993);
+        fill: var(--background-color);
         stroke: var(--letter_primary);
         stroke-width: 3px;
         box-shadow: 1px 1px 10px #6d6dff;
@@ -121,7 +127,7 @@ header {
 
     :hover {
         .icon {
-            fill: rgb(43, 86, 135);
+            fill: var(--hover-primary);
         }
     }
     cursor: pointer;
@@ -144,7 +150,7 @@ header {
     nav {
         font-size: 25px;
         width: 100%;
-        height: 40% !important;
+        height: 100% !important;
         color: var(--text-color);
         background: var(--background-color);
         z-index: 1000;
@@ -152,13 +158,10 @@ header {
         .nav-menu {
             width: 100%;
             height: 40%;
-            
             list-style: circle !important;
             display: block;
             box-sizing: border-box;
-            overflow-y: scroll;
 
-            
             li.menu-item {
                 display: flex;
                 align-items: center;
@@ -170,9 +173,8 @@ header {
                 transition: all ease 300ms;
             }
             .menu-item:hover {
-                background-color: #121f31;
+                background-color: var(--hover-primary);
                 border-bottom: 1px solid;
-                box-sizing: border-box;
             }
 
             .menu-item a {
@@ -204,11 +206,11 @@ header {
                     display: none;
                     top: -10px;
                     position: absolute;
-                    select{
+                    height: 30px;
+                    overflow: none;
+                    select {
                         width: 100%;
                         height: 40px;
-
-                      
                     }
                 }
 
@@ -220,40 +222,40 @@ header {
                         width: 100%;
                         height: 60px;
                         display: flex;
+                        position: relative;
                         align-items: center;
                         justify-content: center;
-                        transition: all ease 400ms;
+                        transition: all ease-in-out 300ms;
                         cursor: pointer;
                     }
-                    button.purple{
+                    button.purple {
                         background-color: var(--background-purple);
                         color: var(--letter_purple);
                     }
-                    button.cyan{
+                    button.cyan {
                         background-color: var(--background-cyan);
                         color: var(--letter_cyan);
                     }
-                    button.blue{
+                    button.blue {
                         background-color: var(--background-blue);
                         color: var(--letter_blue);
                     }
-                    button.green{
+                    button.green {
                         background-color: var(--background-green);
                         color: var(--letter_green);
                     }
-                    button.red{
+                    button.red {
                         background-color: var(--background-red);
                         color: var(--letter_red);
                     }
 
-                    button.light{
-                        background-color: var(--background-ligth);
+                    button.light {
+                        background-color: var(--background-light);
                         color: var(--letter_black);
                     }
 
-
-                    :hover{
-                        background-color: rgba(0, 0, 0, 0.507);
+                    button:hover {
+                        filter: brightness(2);
                     }
                 }
             }
@@ -273,15 +275,15 @@ header {
 }
 
 #burger:hover {
-    background-color: #121f31;
+    background-color: var(--hover-primary);
 }
 
 #burger {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
+    top: 5px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 3px;
     z-index: 10000;
 
@@ -297,7 +299,7 @@ header {
             display: block;
             border-radius: 2px;
             margin: 2px auto;
-            height: 2px;
+            height: 3px;
             background: var(--letter_primary);
             animation: tline-close;
             animation-duration: 500ms;
@@ -310,7 +312,7 @@ header {
             margin: 8px auto;
             width: 50%;
             border-radius: 2px;
-            height: 3px;
+            height: 2px;
             background: var(--letter_primary);
         }
         .b-line {
@@ -318,7 +320,7 @@ header {
             width: 70%;
             border-radius: 2px;
             margin: 2px auto;
-            height: 2px;
+            height: 3px;
             background: var(--letter_primary);
             animation-name: bline-close;
             animation-duration: 500ms;
@@ -354,7 +356,7 @@ header {
     50%,
     100% {
         margin: 0 auto;
-        transform: translateY(-11px) rotate(45deg);
+        transform: translateY(-12px) rotate(45deg);
     }
 }
 
@@ -383,6 +385,12 @@ header {
     }
 }
 
+main{
+    margin: 80px auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 //media screen PC
 @media screen and (min-width: 800px) {
     #burger {
@@ -403,7 +411,6 @@ header {
             margin: 0px;
             justify-content: space-around;
             background-color: var(--background-color);
-            
         }
         .flex .content-logo {
             position: relative;
@@ -436,16 +443,16 @@ header {
                     .drop-item {
                         width: 200px;
                         height: 40px;
-                        
+                        z-index: 1000;
                     }
 
                     .drop-item:hover {
                         width: 250px;
                         height: 40px;
+                        
                         .drop-content {
                             background-color: var(--background-color);
                             border-radius: 4px;
-                            box-shadow: 0px 5px 5px 0px var(--shadow);
                             display: flex;
                             flex-direction: column;
                             align-items: center;
@@ -453,10 +460,10 @@ header {
                             position: absolute;
                             height: auto;
 
-                            button{
+                            button {
                                 border-radius: 10px;
                                 margin: 5px 0;
-                                box-shadow: 1px 3px 1px 1px var(--shadow);
+                                box-shadow: 1px 3px 3px 1px var(--shadow);
                             }
                         }
                     }
@@ -494,12 +501,18 @@ header {
     }
 
     main {
+        display: block;
+        width: auto;
+        height: auto;
+        border: 1px solid;
+        box-sizing: border-box;
+        margin: 150px auto 0;
+
+        .principal{
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 150px auto 0;
         height: 100vh;
-        border: 1px solid;
         box-sizing: border-box;
         .aboutme {
             display: flex;
@@ -526,5 +539,6 @@ header {
                 background-color: #000;
             }
         }
+    }
     }
 }

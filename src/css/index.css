@@ -2,10 +2,9 @@
 @import url("/src/fonts/SourceCodePro-Bold.woff2");
 @import url("/src/fonts/SourceCodePro-Medium.woff2");
 @import url("/src/fonts/SourceCodePro-SemiBold.woff2");
-:root,
-:root.purple {
+:root {
   --letter_purple: #9b3ffd;
-  --letter_primary: var(--letter-purple);
+  --letter_primary: var(--letter_purple);
   --letter_black: #161616;
   --letter_cyan: #19b1f1;
   --letter_green: #00ff48;
@@ -18,36 +17,48 @@
   --background-blue: #030224;
   --background-green: #284034;
   --background-color: var(--background-purple);
-  --background-ligth: rgb(209, 209, 209);
-  --text-color: rgb(235, 235, 235);
-  --text-dark:rgb(29, 29, 29);
+  --background-light: #dadada;
+  --hover-purple: rgb(100, 33, 100);
+  --hover-blue: rgb(37, 33, 100);
+  --hover-cyan: rgb(34, 89, 134);
+  --hover-green: rgb(58, 146, 102);
+  --hover-red: rgb(199, 86, 86);
+  --hover-light: rgb(99, 99, 99);
+  --hover-primary: var(--hover-purple);
+  --text-color: #ebebeb;
+  --text-dark: #1d1d1d;
   --shadow: #161616cb;
 }
 
 :root.cyan {
   --letter_primary: var(--letter_cyan);
   --background-color: var(--background-cyan);
+  --hover-primary: var(--hover-cyan);
 }
 
 :root.green {
   --letter_primary: var(--letter_green);
   --background-color: var(--background-green);
+  --hover-primary: var(--hover-green);
 }
 
 :root.blue {
   --letter_primary: var(--letter_blue);
   --background-color: var(--background-blue);
+  --hover-primary: var(--hover-blue);
 }
 
 :root.red {
   --letter_primary: var(--letter_red);
   --background-color: var(--background-red);
+  --hover-primary: var(--hover-red);
 }
 
 :root.light {
   --letter_primary: var(--letter_black);
   --background-color: var(--background-light);
   --text-color: var(--text-dark);
+  --hover-primary: var(--hover-light);
 }
 
 * {
@@ -101,14 +112,14 @@ header .aboutme {
   cursor: pointer;
 }
 .content-logo .icon {
-  fill: rgba(0, 30, 81, 0.993);
+  fill: var(--background-color);
   stroke: var(--letter_primary);
   stroke-width: 3px;
   box-shadow: 1px 1px 10px #6d6dff;
   transition: all ease 200ms;
 }
 .content-logo :hover .icon {
-  fill: #2b5687;
+  fill: var(--hover-primary);
 }
 
 .flex .content-nav {
@@ -128,7 +139,7 @@ header .aboutme {
 .flex .content-nav nav {
   font-size: 25px;
   width: 100%;
-  height: 40% !important;
+  height: 100% !important;
   color: var(--text-color);
   background: var(--background-color);
   z-index: 1000;
@@ -139,7 +150,6 @@ header .aboutme {
   list-style: circle !important;
   display: block;
   box-sizing: border-box;
-  overflow-y: scroll;
 }
 .flex .content-nav nav .nav-menu li.menu-item {
   display: flex;
@@ -152,9 +162,8 @@ header .aboutme {
   transition: all ease 300ms;
 }
 .flex .content-nav nav .nav-menu .menu-item:hover {
-  background-color: #121f31;
+  background-color: var(--hover-primary);
   border-bottom: 1px solid;
-  box-sizing: border-box;
 }
 .flex .content-nav nav .nav-menu .menu-item a {
   text-decoration: none;
@@ -183,6 +192,8 @@ header .aboutme {
   display: none;
   top: -10px;
   position: absolute;
+  height: 30px;
+  overflow: none;
 }
 .flex .content-nav nav .nav-menu .drop-item .drop-content select {
   width: 100%;
@@ -197,9 +208,10 @@ header .aboutme {
   width: 100%;
   height: 60px;
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
-  transition: all ease 400ms;
+  transition: all ease-in-out 300ms;
   cursor: pointer;
 }
 .flex .content-nav nav .nav-menu .drop-item .item button.purple {
@@ -223,11 +235,11 @@ header .aboutme {
   color: var(--letter_red);
 }
 .flex .content-nav nav .nav-menu .drop-item .item button.light {
-  background-color: var(--background-ligth);
+  background-color: var(--background-light);
   color: var(--letter_black);
 }
-.flex .content-nav nav .nav-menu .drop-item .item :hover {
-  background-color: rgba(0, 0, 0, 0.507);
+.flex .content-nav nav .nav-menu .drop-item .item button:hover {
+  filter: brightness(2);
 }
 .flex .content-nav nav .nav-menu .drop-item:hover {
   width: 100%;
@@ -241,15 +253,15 @@ header .aboutme {
 }
 
 #burger:hover {
-  background-color: #121f31;
+  background-color: var(--hover-primary);
 }
 
 #burger {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 40px;
-  height: 40px;
+  top: 5px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 3px;
   z-index: 10000;
 }
@@ -265,7 +277,7 @@ header .aboutme {
   display: block;
   border-radius: 2px;
   margin: 2px auto;
-  height: 2px;
+  height: 3px;
   background: var(--letter_primary);
   animation: tline-close;
   animation-duration: 500ms;
@@ -278,7 +290,7 @@ header .aboutme {
   margin: 8px auto;
   width: 50%;
   border-radius: 2px;
-  height: 3px;
+  height: 2px;
   background: var(--letter_primary);
 }
 #burger .btn-hamburguesa .b-line {
@@ -286,7 +298,7 @@ header .aboutme {
   width: 70%;
   border-radius: 2px;
   margin: 2px auto;
-  height: 2px;
+  height: 3px;
   background: var(--letter_primary);
   animation-name: bline-close;
   animation-duration: 500ms;
@@ -312,7 +324,7 @@ header .aboutme {
 @keyframes bline {
   50%, 100% {
     margin: 0 auto;
-    transform: translateY(-11px) rotate(45deg);
+    transform: translateY(-12px) rotate(45deg);
   }
 }
 @keyframes tline-close {
@@ -335,6 +347,12 @@ header .aboutme {
     transform: translateY(0px) rotate(0);
   }
 }
+main {
+  margin: 80px auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
 @media screen and (min-width: 800px) {
   #burger {
     display: none;
@@ -387,6 +405,7 @@ header .aboutme {
   header .flex .content-nav nav ul.nav-menu .drop-item {
     width: 200px;
     height: 40px;
+    z-index: 1000;
   }
   header .flex .content-nav nav ul.nav-menu .drop-item:hover {
     width: 250px;
@@ -395,7 +414,6 @@ header .aboutme {
   header .flex .content-nav nav ul.nav-menu .drop-item:hover .drop-content {
     background-color: var(--background-color);
     border-radius: 4px;
-    box-shadow: 0px 5px 5px 0px var(--shadow);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -406,7 +424,7 @@ header .aboutme {
   header .flex .content-nav nav ul.nav-menu .drop-item:hover .drop-content button {
     border-radius: 10px;
     margin: 5px 0;
-    box-shadow: 1px 3px 1px 1px var(--shadow);
+    box-shadow: 1px 3px 3px 1px var(--shadow);
   }
   header .flex .content-nav nav ul.nav-menu .menu-item:nth-child(3) {
     border-radius: 20px;
@@ -435,33 +453,39 @@ header .flex .content-nav nav ul.nav-menu .menu-item:hover a {
   }
 
   main {
+    display: block;
+    width: auto;
+    height: auto;
+    border: 1px solid;
+    box-sizing: border-box;
+    margin: 150px auto 0;
+  }
+  main .principal {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 150px auto 0;
     height: 100vh;
-    border: 1px solid;
     box-sizing: border-box;
   }
-  main .aboutme {
+  main .principal .aboutme {
     display: flex;
     padding: 20px;
     box-sizing: border-box;
   }
-  main .aboutme .content-ab {
+  main .principal .aboutme .content-ab {
     width: 350px;
     height: auto;
   }
-  main .aboutme .content-ab .content-text {
+  main .principal .aboutme .content-ab .content-text {
     text-align: center;
   }
-  main .aboutme .content-ab h2 {
+  main .principal .aboutme .content-ab h2 {
     color: var(--text-color);
   }
-  main .aboutme .content-ab h2 span {
+  main .principal .aboutme .content-ab h2 span {
     color: var(--letter_primary);
   }
-  main .aboutme .conte {
+  main .principal .aboutme .conte {
     width: 400px;
     height: 200px;
     background-color: #000;
