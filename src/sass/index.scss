@@ -1,0 +1,319 @@
+$background:  #000;
+$background-header:  rgb(33, 42, 68);
+$letters: rgb(0, 255, 123);
+$family-code: 'Source Code Pro', 'Fira Code';
+$family-normal: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+
+@import url('/src/fonts/SourceCodePro-Regular.woff2');
+@import url('/src/fonts/SourceCodePro-Bold.woff2');
+@import url('/src/fonts/SourceCodePro-Medium.woff2');
+@import url('/src/fonts/SourceCodePro-SemiBold.woff2');
+
+*{
+  margin: 0px;
+  padding: 0px;
+  font-family: $family-code;
+  box-sizing: border-box;
+}
+
+
+header{
+    width: 100%;
+    height: 50px;
+    background: $background-header;
+    position: fixed;   
+    margin: 0;
+    transition: all ease 500ms;
+
+        .flex{
+        
+        width: 100%;
+        height: 100%;
+        
+            .content-nav.show{
+                right: 0;
+            }
+            
+        }
+}
+
+.content-logo{
+    top: 5px;
+    left: 40px;
+    position: absolute;
+    border: 1px solid;
+    color: rgb(57, 57, 57) !important;
+    width: 40px;
+    height: 40px;
+    display: flex;
+   
+
+    .icon{
+        
+        fill:rgba(0, 30, 81, 0.993);
+        stroke: $letters;
+        stroke-width: 3px;
+        box-shadow: 1px 1px 10px #6d6dff;
+        transition: all ease 200ms;
+       
+    }
+
+    :hover{
+        .icon{
+         
+            fill:rgb(43, 86, 135);
+            
+        }
+    }
+    cursor: pointer;
+   
+}
+
+
+
+
+.flex .content-nav {
+   background: $background-header;
+   transition: all ease 500ms;
+
+    width: 70%;
+    min-width: 300px;
+    position: fixed;
+    right: -100%;
+    top: 50px;
+    z-index: 100;
+    transition: all ease 500ms;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid #000;
+    box-sizing: border-box;
+
+        nav{ 
+            font-size: 25px;
+            width: 100%;
+            height: 100vh;
+            color: rgb(227, 255, 223);
+            .nav-menu {
+                border: 1px solid #000;
+                list-style: circle;
+                width: 100%;
+                height: 100vh;
+                box-sizing: border-box;
+                
+               
+                .menu-item {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 60px;
+                    padding: 4px;
+                    margin: 2px 0px;
+                    cursor: pointer;
+                    transition: all ease 300ms;
+                   
+
+                }
+                .menu-item:hover{
+                    background-color: #121f31;
+                    border-bottom: 1px solid;
+                    box-sizing: border-box;
+
+                }
+
+                .menu-item a{
+                text-decoration: none;
+            color: rgb(227, 255, 223);
+            
+
+                }
+        }
+    }
+
+   
+    
+    
+}
+
+
+
+#burger:hover{
+    background-color: #121f31;
+}
+
+#burger{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    z-index: 10000;    
+
+    .btn-hamburguesa{
+        background: none;
+        border-style: none;
+        width: 100%;
+        height: 100%;
+        
+        display: block;
+
+    .t-line {
+        width: 70%;
+        display: block;
+        border-radius: 2px;
+        margin: 2px auto;
+        height: 2px;
+        background: $letters;
+        animation: tline-close;
+
+        animation-duration: 500ms;
+        animation-fill-mode: forwards;
+    }
+    .m-line {
+        opacity: 1;
+        transition: all ease-in 600ms;
+        display: block;
+        margin: 8px auto;
+        width: 50%;
+        border-radius: 2px;
+        height: 3px;
+        background: $letters;
+    }
+    .b-line {
+        display: block;
+        width: 70%;
+        border-radius: 2px;
+        margin: 2px auto;       
+        height: 2px;
+        background: $letters;
+        animation-name: bline-close;
+        animation-duration: 500ms;
+        animation-fill-mode: forwards;
+    }
+
+}
+
+button.open{
+    .t-line {
+       animation-name: tline;
+    }
+
+    .b-line {
+        width: 70%;
+        animation-name: bline;
+     }
+
+     .m-line{
+         opacity: 0;
+     }
+
+}
+
+}
+
+@keyframes tline {
+    50%, 100%{
+        margin: 0 auto;
+        transform: translateY(10px) rotate(-45deg);
+    }
+}
+
+
+@keyframes bline {
+    
+    50%, 100%{
+        margin: 0 auto;
+        transform: translateY(-11px) rotate(45deg);
+    }
+}
+
+
+@keyframes tline-close {
+    0%{
+        margin: 0 auto;
+        transform: translateY(10px) rotate(-45deg);
+    }
+    50%, 100%{
+        margin: 2px auto;
+        transform: translateY(0) rotate(0);
+    }
+}
+
+
+@keyframes bline-close {
+    0%{
+        margin: 0 auto;
+        transform: translateY(-11px) rotate(45deg);
+    }
+    
+    50%, 100%{
+        margin: 2px auto;
+        transform: translateY(0px) rotate(0);
+    }
+}
+
+
+@media  screen and (min-width: 800px) {
+    #burger{
+        display: none;
+    }
+
+    header{
+     height: 80px;
+     position: fixed;
+
+     .flex{
+         position: relative;
+         width: 100%;
+         height: 80px;
+         display: flex;
+         margin: 0px;
+         justify-content:space-between;
+         align-items: end;
+     }
+     .flex .content-logo{
+         position: relative;
+         width: 80px;
+         height: 80px;
+         top: 0;
+         left: 0;
+         
+     }
+
+     .flex .content-nav{
+         position: relative;
+         width: 80%;
+         height: 80px;
+         top: 0px;
+         right: 0;
+         margin: 0;
+         
+        
+         nav{
+            width: 100%;
+            height: 100%;
+            margin: auto 0;
+                .nav-menu{
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+
+                    .menu-item{
+                        margin: 0px 10px;
+                    }
+                }
+         }
+     }
+
+     
+    }
+
+    header.ontop{
+        height: 500px;
+    }
+}
+

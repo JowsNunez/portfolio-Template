@@ -1,0 +1,249 @@
+@import url("/src/fonts/SourceCodePro-Regular.woff2");
+@import url("/src/fonts/SourceCodePro-Bold.woff2");
+@import url("/src/fonts/SourceCodePro-Medium.woff2");
+@import url("/src/fonts/SourceCodePro-SemiBold.woff2");
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Source Code Pro", "Fira Code";
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 50px;
+  background: #212a44;
+  position: fixed;
+  margin: 0;
+  transition: all ease 500ms;
+}
+header .flex {
+  width: 100%;
+  height: 100%;
+}
+header .flex .content-nav.show {
+  right: 0;
+}
+
+.content-logo {
+  top: 5px;
+  left: 40px;
+  position: absolute;
+  border: 1px solid;
+  color: #393939 !important;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  cursor: pointer;
+}
+.content-logo .icon {
+  fill: rgba(0, 30, 81, 0.993);
+  stroke: #00ff7b;
+  stroke-width: 3px;
+  box-shadow: 1px 1px 10px #6d6dff;
+  transition: all ease 200ms;
+}
+.content-logo :hover .icon {
+  fill: #2b5687;
+}
+
+.flex .content-nav {
+  background: #212a44;
+  transition: all ease 500ms;
+  width: 70%;
+  min-width: 300px;
+  position: fixed;
+  right: -100%;
+  top: 50px;
+  z-index: 100;
+  transition: all ease 500ms;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid #000;
+  box-sizing: border-box;
+}
+.flex .content-nav nav {
+  font-size: 25px;
+  width: 100%;
+  height: 100vh;
+  color: #e3ffdf;
+}
+.flex .content-nav nav .nav-menu {
+  border: 1px solid #000;
+  list-style: circle;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+}
+.flex .content-nav nav .nav-menu .menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding: 4px;
+  margin: 2px 0px;
+  cursor: pointer;
+  transition: all ease 300ms;
+}
+.flex .content-nav nav .nav-menu .menu-item:hover {
+  background-color: #121f31;
+  border-bottom: 1px solid;
+  box-sizing: border-box;
+}
+.flex .content-nav nav .nav-menu .menu-item a {
+  text-decoration: none;
+  color: #e3ffdf;
+}
+
+#burger:hover {
+  background-color: #121f31;
+}
+
+#burger {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  z-index: 10000;
+}
+#burger .btn-hamburguesa {
+  background: none;
+  border-style: none;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+#burger .btn-hamburguesa .t-line {
+  width: 70%;
+  display: block;
+  border-radius: 2px;
+  margin: 2px auto;
+  height: 2px;
+  background: #00ff7b;
+  animation: tline-close;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+#burger .btn-hamburguesa .m-line {
+  opacity: 1;
+  transition: all ease-in 600ms;
+  display: block;
+  margin: 8px auto;
+  width: 50%;
+  border-radius: 2px;
+  height: 3px;
+  background: #00ff7b;
+}
+#burger .btn-hamburguesa .b-line {
+  display: block;
+  width: 70%;
+  border-radius: 2px;
+  margin: 2px auto;
+  height: 2px;
+  background: #00ff7b;
+  animation-name: bline-close;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+#burger button.open .t-line {
+  animation-name: tline;
+}
+#burger button.open .b-line {
+  width: 70%;
+  animation-name: bline;
+}
+#burger button.open .m-line {
+  opacity: 0;
+}
+
+@keyframes tline {
+  50%, 100% {
+    margin: 0 auto;
+    transform: translateY(10px) rotate(-45deg);
+  }
+}
+@keyframes bline {
+  50%, 100% {
+    margin: 0 auto;
+    transform: translateY(-11px) rotate(45deg);
+  }
+}
+@keyframes tline-close {
+  0% {
+    margin: 0 auto;
+    transform: translateY(10px) rotate(-45deg);
+  }
+  50%, 100% {
+    margin: 2px auto;
+    transform: translateY(0) rotate(0);
+  }
+}
+@keyframes bline-close {
+  0% {
+    margin: 0 auto;
+    transform: translateY(-11px) rotate(45deg);
+  }
+  50%, 100% {
+    margin: 2px auto;
+    transform: translateY(0px) rotate(0);
+  }
+}
+@media screen and (min-width: 800px) {
+  #burger {
+    display: none;
+  }
+
+  header {
+    height: 80px;
+    position: fixed;
+  }
+  header .flex {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    margin: 0px;
+    justify-content: space-between;
+    align-items: end;
+  }
+  header .flex .content-logo {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    top: 0;
+    left: 0;
+  }
+  header .flex .content-nav {
+    position: relative;
+    width: 80%;
+    height: 80px;
+    top: 0px;
+    right: 0;
+    margin: 0;
+  }
+  header .flex .content-nav nav {
+    width: 100%;
+    height: 100%;
+    margin: auto 0;
+  }
+  header .flex .content-nav nav .nav-menu {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  header .flex .content-nav nav .nav-menu .menu-item {
+    margin: 0px 10px;
+  }
+
+  header.ontop {
+    height: 500px;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
